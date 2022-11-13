@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Noticias{% endblock %}
+
+{% block body %}
+
+    {{ include('noticias/_delete_form.html.twig') }}
+    {{ include('noticias/_form.html.twig', {'button_label': 'Update'}) }}
+    
+{% endblock %}

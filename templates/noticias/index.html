@@ -1,0 +1,131 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="pagina-index">
+    <nav class="navBar">
+
+<div class="logo">
+    <a
+        href="/">
+        <span class="logo-span">
+            <img class="logo-img" src="{{ asset('images/ADG.png') }}" alt="ADG Logo"/>
+        </span>
+    </a>
+</div>
+
+<div class="logout">
+    <ul>
+        <li>
+            <a
+                class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                href="/{{ app.user ? 'logout' : 'login' }}"
+                @click="isOpen = false">
+                {{ app.user ? 'logout' : 'login' }}
+                <i class="fa-solid fa-door-open exit-icon"></i> </a>
+        </li>  
+    </ul>
+</div>
+</nav>
+
+<div class="blue-section">
+
+    <div>Estas logeado como: {{ app.user.email }}</div>
+
+    {# <p>Haz ingresado como: {{ app.username }}</p> #}
+
+<div class="headers-index">
+    <h1 class="titulo">Noticias</h1>
+    <span class="nueva-noticia">
+        <a class="new" href="{{ path('app_noticias_new') }}"><i class="fa-solid fa-plus icon"></i>Nueva Noticia</a>
+    </span>
+</div>
+
+<div class="main-container">
+    <div class="card-container">
+{% for noticia in noticias %}
+    <div class="card">
+        <div class="card-body">
+            <span class="action-btns">
+                <a class="actions editar-btn" href="{{ path('app_noticias_edit', {'id': noticia.id}) }}">Editar</a>
+                <span class="index-delete">{{ include('noticias/_delete_form_index.html.twig') }}</span>
+            </span>
+
+          <div class="full-content">
+            <div class="content-image">
+                <img class="foto" src="/uploads/fotos/{{noticia.foto}} " alt="foto">
+            </div>
+            <div class="content">
+                <p>Actualizada el {{ noticia.updatedAt ? noticia.updatedAt|date('Y-m-d : (H:i)') : noticia.createdAt|date('Y-m-d(H:i)') }}</p>
+                <a class="show" href="{{ path('app_noticias_show', {'id': noticia.id}) }}"><h5 class="card-title">{{ noticia.titulo }}</h5></a>
+                <h6 class="card-subtitle mb-2 text-muted">{{ noticia.categoria }}</h6>
+                <p class="card-text">{{ noticia.autor }}</p>
+            </div>
+            </div>
+        </div>
+
+      </div>
+{% endfor %}
+</div>
+</div>
+</div>
+{% endblock %} 
+
+{# {% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="pagina-index">
+    <nav class="navBar">
+
+<div class="logo">
+    <a
+        href="/">
+        <span class="logo-span">
+            <img class="logo-img" src="{{ asset('images/ADG.png') }}" alt="ADG Logo"/>
+        </span>
+    </a>
+</div>
+
+<div class="logout">
+    <ul>
+        <li>
+            <a
+                    class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                    href="/{{ app.user ? 'logout' : 'login' }}"
+                    @click="isOpen = false">
+                    {{ app.user ? 'logout' : 'login' }}
+            </a>
+        </li>  
+    </ul>
+</div>
+</nav>
+    <h1 class="titulo">Noticias</h1>
+    <span class="nueva-noticia">
+        <a class="new" href="{{ path('app_noticias_new') }}">Nueva Noticia</a>
+    </span>
+
+    <div>Estas logeado como: {{ app.user.email }}</div>
+
+<div class="main-container">
+    <div class="card-container">
+{% for noticia in noticias %}
+    <div class="card">
+        <div class="card-body">
+            <span class="action-btns">
+                <a class="actions editar-btn" href="{{ path('app_noticias_edit', {'id': noticia.id}) }}">Editar</a>
+                <span class="index-delete">{{ include('noticias/_delete_form_index.html.twig') }}</span>
+            </span>
+          {# <p>{{ noticia.createdAt ? noticia.createdAt|date('Y-m-d') : '' }}</p> #}
+          {# <div class="content">
+          <p>Actualizada el {{ noticia.updatedAt ? noticia.updatedAt|date('Y-m-d(H:i)') : noticia.createdAt|date('Y-m-d(H:i)') }}</p>
+          <a class="show" href="{{ path('app_noticias_show', {'id': noticia.id}) }}"><h5 class="card-title">{{ noticia.titulo }}</h5></a>
+          <h6 class="card-subtitle mb-2 text-muted">{{ noticia.categoria }}</h6>
+          <p class="card-text">{{ noticia.autor }}</p>
+        </div>
+        </div>
+      </div>
+{% endfor %}
+</div>
+</div>
+{% endblock %} #}

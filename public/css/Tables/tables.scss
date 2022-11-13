@@ -1,0 +1,15 @@
+.table > :not(caption) > * > * {
+    padding: 20px 0.5rem;
+    text-align: center;
+}
+
+.tables {
+    padding-top: 20px;
+    width: 100%;
+    height: 100vh;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-style: none;
+    border-width: none;
+}

@@ -1,0 +1,39 @@
+@import "./variables/variables.scss";
+// @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./forms/forms.scss";
+@import './navbar/navbar.scss';
+@import './links/links.scss';
+@import './Tables/tables.scss';
+@import './Panel/panel.scss';
+@import './Index/index.scss';
+@import './Show/show.scss';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,300;1,400;1,500;1,700&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+p {
+    margin-left: $space-between;
+    margin-bottom: 0;
+}
+
+.logo-img {
+    width: 150px;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 100px;
+}
+
+.logout ul {
+    list-style: none;
+}
+
+.logout li a {
+    text-decoration: none;
+    color: #000;
+}

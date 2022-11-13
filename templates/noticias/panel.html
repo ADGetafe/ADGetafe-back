@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="tables">
+    <h1>Panel de Noticias</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Categoria</th>
+                <th>Creada el</th>
+                <th>Actualizada el</th>
+                <th>Autor</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for noticia in noticias %}
+            <tr>
+                <td>{{ noticia.titulo }}</td>
+                <td>{{ noticia.categoria }}</td>
+                <td>{{ noticia.createdAt ? noticia.createdAt|date('Y-m-d') : '' }}</td>
+                <td>{{ noticia.updatedAt ? noticia.updatedAt|date('Y-m-d') : '<i>No se ha editado</i>' }}</td>
+                <td>{{ noticia.autor }}</td>
+                <td>
+                    <a class="actions" href="{{ path('app_noticias_show', {'id': noticia.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aún no hay noticias</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

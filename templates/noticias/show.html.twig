@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Noticias{% endblock %}
+
+{% block body %}
+
+<div class="pagina-show">
+    <div class='heading-bar'>
+        <div class='go-back'>
+            <a href="{{ path('app_noticias_index') }}"><i class="fa-solid fa-chevron-left"></i></a>
+        </div>
+        <div class='editar-btn-show'>
+            <a href="{{ path('app_noticias_edit', {'id': noticia.id}) }}">Editar</a>
+        </div>
+            {{ include('noticias/_delete_form.html.twig') }}
+    </div>
+
+    <h1 class="noticia-titulo-show">{{ noticia.titulo }}</h1>
+
+    <div class="cat-aut-show">
+        <p><strong>Categoria:</strong> {{ noticia.categoria }}</p>
+        <p><strong>Autoria:</strong> {{ noticia.autor }}</p>
+    </div>
+    <div class="articulo-show">
+    
+        <p>{{ noticia.articulo|raw }}</p>
+        {# <p></p> #}
+
+    </div>
+</div>
+
+{# <script>
+
+    const artPa = document.querySelector('p')
+
+    fetch('http://127.0.0.1:800/api')
+        .then(res => res.json())
+        .then(data => {
+            //const result = data.data[0];
+            console.log(data)
+            data.forEach(int => {
+                artPa.insertAdjacentHTML('beforeend', `<p>${int.articulo_noticia}</p>`)
+            });
+        });
+
+</script> #}
+{% endblock %}
