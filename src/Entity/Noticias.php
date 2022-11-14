@@ -38,8 +38,8 @@ class Noticias
     #[Gedmo\Timestampable(on:"update")]
     private ?\DateTimeImmutable $updatedAt = null;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'noticias')]
-    private $user;
+    // #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'noticias')]
+    // private $user;
 
     public function getId(): ?int
     {

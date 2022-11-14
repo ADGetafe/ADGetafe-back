@@ -32,8 +32,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
-    #[ORM\OneToMany(targetEntity: Noticias::class, mappedBy: 'user')]
-    private $noticias;
+    // #[ORM\OneToMany(targetEntity: Noticias::class, mappedBy: 'user')]
+    // private $noticias;
 
     public function getId(): ?int
     {

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Usuarios!{% endblock %}
+
+{% block body %}
+<div>
+<table class="table">
+<thead>
+<th>Email</th>
+<th>Roles</th>
+<th>Actions</th>
+</thead>
+
+<tbody>
+{% for user in users %}
+<tr>
+    <td>{{ user.email }}</td>
+    <td>
+        {% for role in user.roles %}
+           {% if role == "ROLE_USER" %}
+                Editor
+            {% elseif role == "ROLE_ADMIN" %}
+                Administrador
+            {% endif %}
+        {% endfor %}
+    </td>
+    <td><a href="{{ path('editar_usuarios', {'id': user.id}) }}" class="btn btn-save">Editar</a></td>
+    <td><span class="index-delete">{{ include('super_admin/_delete_form_index.html.twig') }}</span></td>
+    {# <td><a href="{{ path('eliminar_usuarios', {'id': user.id}) }}" class="btn btn-warning">Eliminar</a></td> #}
+</tr>
+{% else %}
+<tr>
+    <td colspan=5>No hay Usuarios registrados</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}
