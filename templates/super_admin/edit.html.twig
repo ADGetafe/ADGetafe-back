@@ -3,7 +3,43 @@
 {% block title %}Modifica los Usuarios!{% endblock %}
 
 {% block body %}
-    <h1>Modifica los Usuarios</h1>
-    {{ form(userForm) }}
+
+<div class='heading-bar'>
+    <div class='go-back'>
+        <a href="{{ path('usuarios') }}">
+                <i class="fa-solid fa-chevron-left"></i>
+        </a>
+        <div class="logo-form">
+            <a href="/">
+                <span class="logo-span">
+                    <img class="logo-img" src="{{ asset('images/ADG-logo-transparente.png') }}" alt="ADG Logo"/>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="edit-page">
+    <div class="full-page">
+        <div class="edit-form">
+            <h1 class="titulo">Editar Usuario</h1>
+
+            {{ form(userForm) }}
+
+            {# <div class="form-edit-user">
+                {{ form_widget(userForm.email) }}
+            </div>
+
+            <div class="roles">
+                {{ form_widget(userForm.roles) }}
+            </div>
+
+        <div class="edit-btn">{{ form_widget(userForm.actualizar) }}</div>
+         #}
+        </div>
+    </div>
+</div>
+
+
 
 {% endblock %}

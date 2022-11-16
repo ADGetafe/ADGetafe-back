@@ -57,8 +57,8 @@ class NoticiasController extends AbstractController
 
                 $noticia->setFoto($newFilename);
             }
-                $user = $this->getUser();
-                $noticia->setUser($user);
+                // $user = $this->getUser();
+                // $noticia->setUser($user);
                 $em = $doctrine->getManager();
                 $em->persist($noticia);
                 $em->flush();

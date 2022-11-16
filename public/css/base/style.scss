@@ -1,0 +1,68 @@
+@import "../variables//variables.scss";
+
+@import '../super_admin/imports/import.scss';
+@import '../noticias/imports/imports.scss';
+@import '../Revistas/imports/imports_admin.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,300;1,400;1,500;1,700&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #fff;
+}
+
+p {
+    margin-left: $space-between;
+    margin-bottom: 0;
+}
+
+.logo-img {
+    width: 150px;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 100px;
+}
+
+.logout ul {
+    list-style: none;
+}
+
+.logout li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.full-page{
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.titulo {
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.icon-right{
+    margin-right: 10px;
+}
+
+.icon-left{
+    margin-left: 10px;
+}
+
+.btn-ag {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 54px;
+}
+
+.form-control {
+    border: none;
+    padding: 13px;
+    background-color: gainsboro;
+}

@@ -1,0 +1,63 @@
+@media (min-width: 640px) {
+  .sm\:rounded-lg {
+    border-radius: 0.5rem;
+    border: 3px solid;
+  }
+}
+.uppercase {
+  text-transform: uppercase;
+  border-bottom: 2px solid;
+  text-align: center;
+}
+
+tbody, td, tfoot, th, thead, tr {
+  border-style: none;
+  border-width: none;
+  text-align: center;
+}
+
+.text-white {
+  --text-opacity: 1;
+  padding: 15px;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+}
+
+.td-flex {
+  display: flex;
+  justify-content: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark\:bg-gray-700 {
+    --tw-bg-opacity: 1;
+    background-color: transparent;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .dark\:text-white {
+    --tw-text-opacity: 1;
+    color: #808088;
+  }
+}
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.form-edit-user {
+  width: 50%;
+  margin-top: 30px;
+}
+
+.edit-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.roles {
+  margin-top: 30px;
+}/*# sourceMappingURL=import.css.map */

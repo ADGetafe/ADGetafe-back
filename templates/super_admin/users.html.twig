@@ -1,39 +1,84 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello Usuarios!{% endblock %}
+{% block title %}Usuarios{% endblock %}
 
 {% block body %}
-<div>
-<table class="table">
-<thead>
-<th>Email</th>
-<th>Roles</th>
-<th>Actions</th>
-</thead>
 
-<tbody>
-{% for user in users %}
-<tr>
-    <td>{{ user.email }}</td>
-    <td>
-        {% for role in user.roles %}
-           {% if role == "ROLE_USER" %}
-                Editor
-            {% elseif role == "ROLE_ADMIN" %}
-                Administrador
-            {% endif %}
-        {% endfor %}
-    </td>
-    <td><a href="{{ path('editar_usuarios', {'id': user.id}) }}" class="btn btn-save">Editar</a></td>
-    <td><span class="index-delete">{{ include('super_admin/_delete_form_index.html.twig') }}</span></td>
-    {# <td><a href="{{ path('eliminar_usuarios', {'id': user.id}) }}" class="btn btn-warning">Eliminar</a></td> #}
-</tr>
-{% else %}
-<tr>
-    <td colspan=5>No hay Usuarios registrados</td>
-</tr>
-{% endfor %}
-</tbody>
-</table>
+<div class='heading-bar'>
+    <div class='go-back'>
+        <a href="{{ path('app_noticias_index') }}">
+                <i class="fa-solid fa-chevron-left"></i>
+        </a>
+        <div class="logo-form">
+            <a href="/">
+                <span class="logo-span">
+                    <img class="logo-img" src="{{ asset('images/ADG-logo-transparente.png') }}" alt="ADG Logo"/>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="full-page">
+    <div class="headers-index">
+        <h1 class="titulo">Administracion de Usuarios</h1>
+    <div class="btn-ag">
+        <a href="{{ path('app_register') }}" class="boton-admin focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"><i class="fa-solid fa-plus icon-right"></i>Nuevo Usuario</a>
+    </div>
+    </div>
+
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg table-margin">
+        <table class="w-full text-sm text-left text-black-500 dark:text-black-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-black-400">
+                <tr>
+                    <th scope="col" class="py-3 px-6">
+                        Email
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Roles
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ user.email }}
+                    </th>
+                    <td class="py-4 px-6">
+                        {% for role in user.roles %}
+                            {% if role == "ROLE_USER" %}
+                                Editor
+                            {% elseif role == "ROLE_ADMIN" %}
+                                Administrador
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+
+                    <td class="py-4 px-6 td-flex">
+
+                        {{ include('super_admin/_delete_form_index.html.twig') }}
+
+                        <a href="{{ path('editar_usuarios', {'id': user.id}) }}">
+                        <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">
+                        Editar
+                        </button>
+                        </a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
+                    <td colspan="6" class="py-4 px-6">
+                        No records found
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

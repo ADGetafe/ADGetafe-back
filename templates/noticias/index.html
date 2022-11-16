@@ -9,7 +9,7 @@
     <a
         href="/">
         <span class="logo-span">
-            <img class="logo-img" src="{{ asset('images/ADG.png') }}" alt="ADG Logo"/>
+            <img class="logo-img" src="{{ asset('images/ADG-logo-transparente.png') }}" alt="ADG Logo"/>
         </span>
     </a>
 </div>
@@ -21,8 +21,11 @@
                 class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
                 href="/{{ app.user ? 'logout' : 'login' }}"
                 @click="isOpen = false">
-                {{ app.user ? 'logout' : 'login' }}
-                <i class="fa-solid fa-door-open exit-icon"></i> </a>
+                <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                {{ app.user ? 'Salir' : 'login' }}
+                <i class="fa-solid fa-door-open exit-icon icon-left"></i>
+                </button>
+                </a>
         </li>  
     </ul>
 </div>
@@ -30,15 +33,15 @@
 
 <div class="blue-section">
 
-    <div>Estas logeado como: {{ app.user.email }}</div>
-
-    {# <p>Haz ingresado como: {{ app.username }}</p> #}
+    <p>Has ingresado como: {{ app.user.email }}</p>
 
 <div class="headers-index">
     <h1 class="titulo">Noticias</h1>
-    <span class="nueva-noticia">
-        <a class="new" href="{{ path('app_noticias_new') }}"><i class="fa-solid fa-plus icon"></i>Nueva Noticia</a>
-    </span>
+    <div class="nueva-noticia">
+        <div class="btn-ag" >
+            <a class="boton-admin focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" href="{{ path('app_noticias_new') }}"><i class="fa-solid fa-plus icon-right"></i>Nueva Noticia</a>
+        </div>
+    </div>
 </div>
 
 <div class="main-container">
@@ -47,7 +50,13 @@
     <div class="card">
         <div class="card-body">
             <span class="action-btns">
-                <a class="actions editar-btn" href="{{ path('app_noticias_edit', {'id': noticia.id}) }}">Editar</a>
+                <a href="{{ path('app_noticias_edit', {'id': noticia.id}) }}">
+                
+                <button type="button" class="focus:outline-none text-white bg-blue-400 hover:bg-blue-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-blue-900">
+                Editar
+                </button>
+                </a>
+
                 <span class="index-delete">{{ include('noticias/_delete_form_index.html.twig') }}</span>
             </span>
 
@@ -56,7 +65,7 @@
                 <img class="foto" src="/uploads/fotos/{{noticia.foto}} " alt="foto">
             </div>
             <div class="content">
-                <p>Actualizada el {{ noticia.updatedAt ? noticia.updatedAt|date('Y-m-d : (H:i)') : noticia.createdAt|date('Y-m-d(H:i)') }}</p>
+                <p>Actualizada el {{ noticia.updatedAt ? noticia.updatedAt|date('d-m-Y : (H:i)') : noticia.createdAt|date('Y-m-d(H:i)') }}</p>
                 <a class="show" href="{{ path('app_noticias_show', {'id': noticia.id}) }}"><h5 class="card-title">{{ noticia.titulo }}</h5></a>
                 <h6 class="card-subtitle mb-2 text-muted">{{ noticia.categoria }}</h6>
                 <p class="card-text">{{ noticia.autor }}</p>

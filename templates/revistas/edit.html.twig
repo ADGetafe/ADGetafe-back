@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Revistas{% endblock %}
+
+{% block body %}
+    <h1>Edit Revistas</h1>
+
+    {{ include('revistas/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_revistas_index') }}">back to list</a>
+
+    {{ include('revistas/_delete_form.html.twig') }}
+{% endblock %}

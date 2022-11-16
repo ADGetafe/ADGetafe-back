@@ -12,17 +12,18 @@
     <div class='go-back'>
         <a href="{{ path('app_noticias_index') }}"><i class="fa-solid fa-chevron-left"></i></a>
             <div class="logo-form">
-    <a
-        href="/">
-        <span class="logo-span">
-            <img class="logo-img" src="{{ asset('images/ADG.png') }}" alt="ADG Logo"/>
-        </span>
-    </a>
-</div>
+            <a href="/">
+                <span class="logo-span">
+                    <img class="logo-img" src="{{ asset('images/ADG-logo-transparente.png') }}" alt="ADG Logo"/>
+                </span>
+            </a>
+        </div>
     </div>
+
     <div class='acciones-btn'>
-        <button class="btn btn-success">{{ button_label|default('Publicar') }}</button>
+        <button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">{{ button_label|default('Publicar') }}</button>
     </div>
+    
 </div>
 
 <div class='new-form'>

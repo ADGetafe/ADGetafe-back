@@ -1,4 +1,4 @@
 <form class='borrar-index' method="post" action="{{ path('app_noticias_delete', {'id': noticia.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ noticia.id) }}">
-    <button class="btn btn-danger-index">Borrar</button>
+    <button  class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Eliminar</button>
 </form>

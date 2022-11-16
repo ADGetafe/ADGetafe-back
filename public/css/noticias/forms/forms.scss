@@ -1,4 +1,4 @@
-@import "../variables/variables.scss";
+@import "../../variables/variables.scss";
 
 .form-control{
     border: none;
@@ -93,8 +93,9 @@
     }
 }
 
-.borrar{
+.borrar {
     display: flex;
     position: absolute;
-    margin-left: 88%;
+    margin-left: 71%;
+    margin-top: 64px;
 }

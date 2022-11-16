@@ -119,19 +119,19 @@ class Noticias
     }
 
     
-    /**
-     * @return mixed
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
+    // /**
+    //  * @return mixed
+    //  */
+    // public function getUser()
+    // {
+    //     return $this->user;
+    // }
 
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user): void
-    {
-        $this->user = $user;
-    }
+    // /**
+    //  * @param mixed $user
+    //  */
+    // public function setUser($user): void
+    // {
+    //     $this->user = $user;
+    // }
 }
