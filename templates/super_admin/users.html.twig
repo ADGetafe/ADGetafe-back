@@ -4,20 +4,41 @@
 
 {% block body %}
 
-<div class='heading-bar'>
-    <div class='go-back'>
-        <a href="{{ path('app_noticias_index') }}">
-                <i class="fa-solid fa-chevron-left"></i>
-        </a>
-        <div class="logo-form">
-            <a href="/">
-                <span class="logo-span">
-                    <img class="logo-img" src="{{ asset('images/ADG-logo-transparente.png') }}" alt="ADG Logo"/>
-                </span>
-            </a>
-        </div>
-    </div>
+<nav class="navBar">
+
+<div class="logo">
+    <a
+        href="/">
+        <span class="logo-span">
+            <img class="logo-img" src="{{ asset('images/ADG-logo-transparente.png') }}" alt="ADG Logo"/>
+        </span>
+    </a>
 </div>
+
+<div class="logout">
+    <ul>
+        <li>
+            <a href="{{ path('app_revistas_index') }}">
+                <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                    Revistas
+                </button>
+            </a>
+
+            <a href="{{ path('app_noticias_index') }}">
+                <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                    Noticias
+                </button>
+            </a>
+            <a href="/{{ app.user ? 'logout' : 'login' }}">
+                <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                {{ app.user ? 'Salir' : 'login' }}
+                <i class="fa-solid fa-door-open exit-icon icon-left"></i>
+                </button>
+                </a>
+        </li>  
+    </ul>
+</div>
+</nav>
 
 <div class="full-page">
     <div class="headers-index">

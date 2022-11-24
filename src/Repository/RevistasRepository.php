@@ -16,6 +16,13 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class RevistasRepository extends ServiceEntityRepository
 {
+    public function findAllOrderedByFecha() { 
+        return $this->createQueryBuilder('a')
+            ->addOrderBy('a.updatedAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Revistas::class);

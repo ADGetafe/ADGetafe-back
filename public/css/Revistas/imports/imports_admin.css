@@ -1,3 +1,18 @@
 .table-margin {
   margin: 23px 66px;
+}
+
+.boton-admin {
+  padding: 10px;
+}
+
+.new-form .set-titulo-revista {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+
+.new-form #revistas_titulo {
+  text-align: center;
+  font-size: 30px;
 }/*# sourceMappingURL=imports_admin.css.map */

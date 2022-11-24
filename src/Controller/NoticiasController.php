@@ -12,8 +12,10 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+// use ApiPlatform\Metadata\ApiResource;
 
 #[Route('/noticias')]
+// #[ApiResource]
 class NoticiasController extends AbstractController
 {
     #[Route('/', name: 'app_noticias_index', methods: ['GET'])]
@@ -63,8 +65,6 @@ class NoticiasController extends AbstractController
                 $em->persist($noticia);
                 $em->flush();
 
-                $noticiasRepository->save($noticia, true);
-
             $noticiasRepository->save($noticia, true);
 
             return $this->redirectToRoute('app_noticias_index', [], Response::HTTP_SEE_OTHER);
@@ -85,12 +85,37 @@ class NoticiasController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_noticias_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Noticias $noticia, NoticiasRepository $noticiasRepository): Response
+    public function edit(Request $request, Noticias $noticia, NoticiasRepository $noticiasRepository, ManagerRegistry $doctrine, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(NoticiasType::class, $noticia);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            $brochureFile = $form['foto']->getData();
+            if ($brochureFile) {
+                $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+                // Move the file to the directory where brochures are stored
+                try {
+                    $brochureFile->move(
+                        $this->getParameter('fotos_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    throw new \Exception('¡Uy!, algo salió mal! :(');
+                }
+
+                $noticia->setFoto($newFilename);
+            }
+                // $user = $this->getUser();
+                // $noticia->setUser($user);
+                $em = $doctrine->getManager();
+                $em->persist($noticia);
+                $em->flush();
+
             $noticiasRepository->save($noticia, true);
 
             return $this->redirectToRoute('app_noticias_index', [], Response::HTTP_SEE_OTHER);

@@ -17,15 +17,25 @@
 <div class="logout">
     <ul>
         <li>
-            <a
-                class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                href="/{{ app.user ? 'logout' : 'login' }}"
-                @click="isOpen = false">
+            {% if app.user %}
+                        <a href="{{ path('usuarios') }}">
+                            <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                                Panel de administración
+                            </button>
+                        </a>
+            {% endif %}
+
+            <a href="{{ path('app_revistas_index') }}">
+                <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                    Revistas
+                </button>
+            </a>
+            <a href="/{{ app.user ? 'logout' : 'login' }}">
                 <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                 {{ app.user ? 'Salir' : 'login' }}
                 <i class="fa-solid fa-door-open exit-icon icon-left"></i>
                 </button>
-                </a>
+            </a>
         </li>  
     </ul>
 </div>
@@ -65,7 +75,7 @@
                 <img class="foto" src="/uploads/fotos/{{noticia.foto}} " alt="foto">
             </div>
             <div class="content">
-                <p>Actualizada el {{ noticia.updatedAt ? noticia.updatedAt|date('d-m-Y : (H:i)') : noticia.createdAt|date('Y-m-d(H:i)') }}</p>
+                <p>Actualizada el {{ noticia.updatedAt ? noticia.updatedAt|date('d-m-Y : (H:i)') : noticia.createdAt|date('d-m-Y (H:i)') }}</p>
                 <a class="show" href="{{ path('app_noticias_show', {'id': noticia.id}) }}"><h5 class="card-title">{{ noticia.titulo }}</h5></a>
                 <h6 class="card-subtitle mb-2 text-muted">{{ noticia.categoria }}</h6>
                 <p class="card-text">{{ noticia.autor }}</p>
@@ -79,62 +89,3 @@
 </div>
 </div>
 {% endblock %} 
-
-{# {% extends 'base.html.twig' %}
-
-{% block body %}
-
-<div class="pagina-index">
-    <nav class="navBar">
-
-<div class="logo">
-    <a
-        href="/">
-        <span class="logo-span">
-            <img class="logo-img" src="{{ asset('images/ADG.png') }}" alt="ADG Logo"/>
-        </span>
-    </a>
-</div>
-
-<div class="logout">
-    <ul>
-        <li>
-            <a
-                    class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                    href="/{{ app.user ? 'logout' : 'login' }}"
-                    @click="isOpen = false">
-                    {{ app.user ? 'logout' : 'login' }}
-            </a>
-        </li>  
-    </ul>
-</div>
-</nav>
-    <h1 class="titulo">Noticias</h1>
-    <span class="nueva-noticia">
-        <a class="new" href="{{ path('app_noticias_new') }}">Nueva Noticia</a>
-    </span>
-
-    <div>Estas logeado como: {{ app.user.email }}</div>
-
-<div class="main-container">
-    <div class="card-container">
-{% for noticia in noticias %}
-    <div class="card">
-        <div class="card-body">
-            <span class="action-btns">
-                <a class="actions editar-btn" href="{{ path('app_noticias_edit', {'id': noticia.id}) }}">Editar</a>
-                <span class="index-delete">{{ include('noticias/_delete_form_index.html.twig') }}</span>
-            </span>
-          {# <p>{{ noticia.createdAt ? noticia.createdAt|date('Y-m-d') : '' }}</p> #}
-          {# <div class="content">
-          <p>Actualizada el {{ noticia.updatedAt ? noticia.updatedAt|date('Y-m-d(H:i)') : noticia.createdAt|date('Y-m-d(H:i)') }}</p>
-          <a class="show" href="{{ path('app_noticias_show', {'id': noticia.id}) }}"><h5 class="card-title">{{ noticia.titulo }}</h5></a>
-          <h6 class="card-subtitle mb-2 text-muted">{{ noticia.categoria }}</h6>
-          <p class="card-text">{{ noticia.autor }}</p>
-        </div>
-        </div>
-      </div>
-{% endfor %}
-</div>
-</div>
-{% endblock %} #}

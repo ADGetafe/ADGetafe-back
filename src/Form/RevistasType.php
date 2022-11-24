@@ -8,6 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 
 class RevistasType extends AbstractType
 {
@@ -16,7 +18,7 @@ class RevistasType extends AbstractType
         $builder
             ->add('titulo', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Escribe el titulo de tu Articulo Aqui',
+                    'placeholder' => 'Escribe el titulo de la revista Aqui',
                     'class'=> 'title'
                     ]
                 ])
@@ -24,6 +26,14 @@ class RevistasType extends AbstractType
                 'label'=> 'Selecciona una revista',
                 'mapped' => false, 
                 'required' => false
+                ])
+
+                ->add('fragmento', TextareaType::class, [
+                    'attr' => [
+                        'placeholder' => 'Escriba una descripción para la revista',
+                        'class' => 'revista',
+                        'block_prefix' => 'revista_text',
+                    ]
                 ])
         ;
     }

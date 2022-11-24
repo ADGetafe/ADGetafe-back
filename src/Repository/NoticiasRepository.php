@@ -23,6 +23,13 @@ class NoticiasRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findOneById() { 
+        return $this->createQueryBuilder('a')
+            ->addOrderBy('a.id')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Noticias::class);

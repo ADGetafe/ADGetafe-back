@@ -11,14 +11,8 @@
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/base/style.css') }}"/>
         {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
-        {# <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script> #}
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {# {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %} #}
-
-    </head>
+    </head>}
+    
     <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
         {% block header %}
         {% endblock %}

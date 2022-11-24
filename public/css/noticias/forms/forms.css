@@ -79,4 +79,18 @@
   position: absolute;
   margin-left: 71%;
   margin-top: 64px;
+}
+
+#noticias_fragmento {
+  height: 40vh;
+  width: 50%;
+  border: 2px solid;
+  resize: none;
+  background-color: gainsboro;
+}
+
+.set-fragmento {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
 }/*# sourceMappingURL=forms.css.map */

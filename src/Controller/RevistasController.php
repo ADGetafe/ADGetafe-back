@@ -20,7 +20,7 @@ class RevistasController extends AbstractController
     public function index(RevistasRepository $revistasRepository): Response
     {
         return $this->render('revistas/index.html.twig', [
-            'revistas' => $revistasRepository->findAll(),
+            'revistas' => $revistasRepository->findAllOrderedByFecha(),
         ]);
     }
 

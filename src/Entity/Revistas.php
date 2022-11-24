@@ -29,6 +29,9 @@ class Revistas
     #[Gedmo\Timestampable(on:"update")]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $fragmento = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -66,5 +69,17 @@ class Revistas
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updatedAt;
+    }
+
+    public function getFragmento(): ?string
+    {
+        return $this->fragmento;
+    }
+
+    public function setFragmento(string $fragmento): self
+    {
+        $this->fragmento = $fragmento;
+
+        return $this;
     }
 }

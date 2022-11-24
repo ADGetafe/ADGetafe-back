@@ -100,6 +100,7 @@ tbody, td, tfoot, th, thead, tr {
   display: flex;
   flex-direction: column;
   width: 65%;
+  background-color: #dcdcdc;
 }
 
 .card {
@@ -137,8 +138,8 @@ tbody, td, tfoot, th, thead, tr {
   background-color: #0093CE;
 }
 
-.card-container {
-  background-color: #dcdcdc;
+.content {
+  line-height: 40px;
 }
 
 .noticia-titulo-show {
@@ -254,6 +255,20 @@ tbody, td, tfoot, th, thead, tr {
   margin-top: 64px;
 }
 
+#noticias_fragmento {
+  height: 40vh;
+  width: 50%;
+  border: 2px solid;
+  resize: none;
+  background-color: gainsboro;
+}
+
+.set-fragmento {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
 .actions {
   text-decoration: none;
   color: rgb(255, 255, 255);
@@ -307,6 +322,30 @@ tbody, td, tfoot, th, thead, tr {
 
 .boton-admin {
   padding: 10px;
+}
+
+.new-form .set-titulo-revista {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+
+.new-form #revistas_titulo {
+  text-align: center;
+  font-size: 30px;
+}
+
+#revistas_fragmento {
+  height: 20vh;
+  resize: none;
+  background: gainsboro;
+  justify-content: flex-start;
+}
+
+.set-revista-fragmento {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 body {
@@ -367,5 +406,26 @@ p {
 .form-control {
   border: none;
   padding: 13px;
-  background-color: gainsboro;
+  background-color: transparent;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8ad676;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }/*# sourceMappingURL=style.css.map */

@@ -2,12 +2,18 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\NoticiasRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: NoticiasRepository::class)]
+#[ApiResource]
+#[ApiResource(operations: [
+    new Get(),
+    new GetCollection()
+])]
 class Noticias
 {
     #[ORM\Id]
@@ -29,6 +35,9 @@ class Noticias
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $articulo = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $fragmento = null;
 
     #[ORM\Column]
     #[Gedmo\Timestampable(on:"create")]
@@ -107,6 +116,20 @@ class Noticias
 
         return $this;
     }
+
+    //ok
+    public function getFragmento(): ?string
+    {
+        return $this->fragmento;
+    }
+
+    public function setFragmento(string $fragmento): self
+    {
+        $this->fragmento = $fragmento;
+
+        return $this;
+    }
+    //ok
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {

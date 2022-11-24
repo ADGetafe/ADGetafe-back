@@ -48,6 +48,13 @@ class NoticiasType extends AbstractType
                     'block_prefix' => 'articulo_text',
                 ]
             ])
+            ->add('fragmento', TextareaType::class, [
+                'attr' => [
+                    'placeholder' => 'Escriba el fragmento del artículo',
+                    'class' => 'articulo',
+                    'block_prefix' => 'articulo_text',
+                ]
+            ])
         ;
     }
 

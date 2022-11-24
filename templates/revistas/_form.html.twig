@@ -1,4 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class='heading-bar'>
+    <div class='go-back'>
+        <a href="{{ path('app_revistas_index') }}"><i class="fa-solid fa-chevron-left"></i></a>
+            <div class="logo-form">
+            <a href="/">
+                <span class="logo-span">
+                    <img class="logo-img" src="{{ asset('images/ADG-logo-transparente.png') }}" alt="ADG Logo"/>
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <div class='acciones-btn'>
+        <button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">{{ button_label|default('Publicar') }}</button>
+    </div>
+    
+</div>
+
+<div class='new-form'>
+    <div class="my-custom-class-for-errors">
+            {{ form_errors(form) }}
+    </div>
+
+        <div class='set-titulo-revista'>
+            {{ form_label(form.titulo, ' ') }}
+            {{ form_widget(form.titulo) }}
+        </div>
+
+        <div class='set-revista'>
+            {{ form_widget(form.revista) }}
+        </div>
+
+        <div class='set-revista-fragmento'>
+            {{ form_widget(form.fragmento) }}
+        </div>
+
+</div> 
 {{ form_end(form) }}

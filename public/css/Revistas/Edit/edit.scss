@@ -1,0 +1,23 @@
+.new-form .set-titulo-revista {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+.new-form #revistas_titulo {
+    text-align: center;
+    font-size: 30px;
+}
+
+#revistas_fragmento {
+    height: 20vh;
+    resize: none;
+    background: gainsboro;
+    justify-content: flex-start;
+}
+
+.set-revista-fragmento{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
